@@ -59,6 +59,7 @@
   .fc-theme-standard th {
     border: 1px solid #2196f3;
     border: 1px solid var(--fc-border-color, #2196f3);
+    border-radius: 8px;
   }
 /* for FF, which doesn't expand a 100% div within a table cell. use absolute positioning */
 /* inner-wrappers are responsible for being absolute */
@@ -331,7 +332,10 @@ When it's NOT activated, the fc-button classes won't even be in the DOM.
   }
 .fc-theme-standard .fc-scrollgrid {
     border: 1px solid #ddd;
-    border: 1px solid var(--fc-border-color, #ddd); /* bootstrap does this. match */
+    border: 1px solid var(--fc-border-color, #ddd);
+    border-radius: 8px;
+    
+    /* bootstrap does this. match */
   }
 .fc .fc-scrollgrid,
     .fc .fc-scrollgrid table { /* all tables (self included) */
@@ -414,6 +418,9 @@ When it's NOT activated, the fc-button classes won't even be in the DOM.
 
   /* when the harness controls the height, make the view liquid */
 
+}
+.fc-view-harness{
+  height: 437.037px!important;
 }
 .fc .fc-view-harness-active > .fc-view {
     position: absolute;
