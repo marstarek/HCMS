@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>crud</title>
+  <link rel="stylesheet" href="src/css/style.css">
+  <link rel="stylesheet" href="src/css/bootstrap.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js" integrity="sha512-sW/w8s4RWTdFFSduOTGtk4isV1+190E/GghVffMA9XczdJ2MDzSzLEubKAs5h0wzgSJOQTRYyaz73L3d6RtJSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link href='./src/lib/main.css' rel='stylesheet' />
+  <script  src="src/js/jquery-3.6.0.js"></script>
+  <script src='./src/lib/main.min.js'></script>
+  <script>
+
+    document.addEventListener('DOMContentLoaded', function() {
+      var calendarEl = document.getElementById('calendar');
+      var calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth',
+        selectable: true,
+        // locale: 'ar',
+      });
+      calendar.render();
+    });
+
+  </script>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"> <img src="./images/icon.jpg" style="    width: 125px;
+        border-radius: 5px;" alt=""></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./timer.html">tracker</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./login.html">login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./addemp.html">addEmp</a>
+          </li>
+          <li class="nav-item dropdown bg-dark">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown
+            </a>
+            <ul class="dropdown-menu bg-dark text-white" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="./addemp.html">EMP</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled">Disabled</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control bg-dark me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <main >
+   <div class="containerx " style="height: 93vh;">
+<div class="row h-100 w-100 ">
+  <div class="col-lg-2 pe-0 d-flex flex-column bg-dark " >
+    <div class="user">
+      <div class="user__info d-flex     align-items-center flex-column">
+        <div class="user__icon">
+          <img src="images/d0b79558-ebba-48a9-9e2a-e3b07a2b2233.webp" class="w-100" alt="Jeremy Robson" />
+        </div>
+        <div class="user__text">
+          <h1 class="text--med">Tarek Ahmed</h1>
+          <p class="text--small">ID:299</p>
+        </div>
+      </div>
+      <ul class="user__nav d-flex">
+        <li class="">Sphinx Co</li>
+        <li class="">Front End Developer </li>
+        <li >checked in at: <span id="startat"></span></li>
+        <li >working at: <span id="working-at"></span></li>
+        <li >checked out at:<span class="time-card__hours " id="checked-out"></span>
+        </li>
+        <li >
+        </li>
+       
+        
+      </ul>
+    
+    </div>
+   <div class="text-center py-5">
+    <button class=" btn btn-danger    checkout  disable" onclick="checkout()">
+      check out 
+    </button>
+   </div>
+  </div>
+  <div class="col-lg-6 py-5">
+    <div class="row justify-content-center text-center">
+      <h1>Time Tracker</h1>
+          <button style="width: fit-content;" class= "py-2 btn btn-primary  getCurrentTime" onclick="getCurrentTime(event)">
+            checkin
+          </button>
+          <form class="project-form py-2">
+  
+            <input type="text" style="padding:.7rem .7rem" class="  mx-auto w-75 form-control bg-dark text-white    disable" name="project" id="task" placeholder="Enter project name" />
+          </form>
+    </div>
+    <div class="row py-3">
+      <div class=" time-card col-lg-6 d-flex flex-column     align-items-center "style="gap: 10px;">
+          <div class="" style="height: fit-content;">
+            <button id="start"class="btn btn-primary disable">Start work</button>
+          </div>
+          <div class="time-card__info ">
+            <div class="d-flex time-card__upper">
+              <p class="time-card__title">working hours</p>
+            </div>
+            <div class="d-flex">
+              <p class="text--big time-card__time">
+                <span class="time-card__hours "><span id="hours">00:</span>
+                <span id="mins">00:</span>
+                <span id="seconds">00</span></span>
+              </p>
+            
+            </div>
+          </div>
+        
+  
+  
+      </div>
+      <div class=" time-card col-lg-6 d-flex flex-column     align-items-center " style="gap: 10px;">
+   
+          <div class="" style="    height: fit-content;">
+            <button id="stop" class="btn btn-primary  disable">Take a break</button>
+            </div>
+        <div class="time-card__info ">
+          <div class="d-flex time-card__upper">
+            <p class="time-card__title">Break</p>
+         
+          </div>
+          <div class="d-flex flex-column">
+            <p class="text--big  ">
+              <span class="time-card__hours " id="have-break" style="" ></span>
+            </p>
+            <p class="text--small break-parent">
+              <span class="time-card__hours--last" id="breakat"></span>
+            </p>
+          </div>
+        </div>
+        
+        
+        </div>
+    </div>
+  </div>
+  <div class="col-lg-4 py-5 px-0">
+    <div id='calendar'></div>
+  </div>
+</div>
+
+    
+   
+   </div>
+
+
+  </main>
+   <!-- FOOTER -->
+   <!-- <footer class="w-100 py-4 flex-shrink-0 bg-dark text-white">
+    <div class="container py-4">
+        <div class="row gy-4 gx-5">
+            <div class="col-lg-4 col-md-6">
+                <h5 class="h1 text-white">FB.</h5>
+                <p class="small ">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+ 
+            </div>
+            <div class="col-lg-2 col-md-6 text-white">
+                <h5 class="text-white mb-3">Quick links</h5>
+                <ul class="list-unstyled  ">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Get started</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-2 col-md-6 text-white">
+                <h5 class="text-white mb-3">Quick links</h5>
+                <ul class="list-unstyled ">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Get started</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-4 col-md-6 text-white">
+                <h5 class="text-white mb-3">Newsletter</h5>
+                <p class="small ">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+                <form action="#">
+                    <div class="input-group mb-3">
+                        <input class="form-control" type="text" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <button class="btn btn-primary" id="button-addon2" type="button"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</footer> -->
+ 
+
+</body>
+<script  src="src/js/main.js"></script>
+<script  src="src/js/app.js"></script>
+<!-- <script  src="src/js/jquery-3.6.0.js"></script> -->
+<script src="src/js/bootstrap.min.js"></script>
+<script src="src/js/bootstrap.bundle.min.js"></script>
+
+</html>
