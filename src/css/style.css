@@ -133,8 +133,9 @@ a {
   cursor: auto!;
   margin: 0;
   width: 100%;
-  height: 25rem;
+  height: 27.3rem;
   overflow: auto;
+  border:2px solid rgb(24, 120, 247); 
 
 }
 
@@ -162,7 +163,15 @@ padding:10px 0
 .req-body{
   text-align:left
 }
-
+#working-at{
+  color: rgb(24, 120, 247);;
+}
+#startat{
+  color: rgb(24, 120, 247);;
+}
+#checked-out{
+  color:#BB2D3B;
+}
 
 
 
