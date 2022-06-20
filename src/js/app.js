@@ -1,5 +1,6 @@
 
 
+
 let timep = document.getElementById("startat");
 var hours =0;
 var mins =0;
@@ -32,7 +33,8 @@ stop.addEventListener("click", function (e) {
      getCurrentTime(e)
      clearTimeout(timex);
      e.target.classList.toggle("disable")
-     start.innerText="Continue"
+     start.innerText = "Continue"
+
 
 })
 

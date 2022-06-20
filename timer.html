@@ -32,7 +32,7 @@
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#"> <img src="./images/icon.jpg" style="    width: 125px;
+      <a class="navbar-brand" href="#"> <img src="./images/icon1.jpg" style="    width: 125px;
         border-radius: 5px;" alt=""></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -79,6 +79,7 @@
       <div class="user__info d-flex     align-items-center flex-column">
         <div class="user__icon">
           <img src="images/d0b79558-ebba-48a9-9e2a-e3b07a2b2233.webp" class="w-100" alt="Jeremy Robson" />
+          <i class="bi bi-camera-fill upload-img"></i>
         </div>
         <div class="user__text">
           <h1 class="text--med">Tarek Ahmed</h1>
@@ -112,7 +113,7 @@
           </button>
           <form class="project-form py-2">
   
-            <input type="text" style="padding:.7rem .7rem" class="  mx-auto w-75 form-control bg-dark text-white    disable" name="project" id="task" placeholder="Enter project name" />
+            <input type="text" style="padding:.7rem .7rem" class="  mx-auto w-50 form-control bg-dark text-white    disable" name="project" id="task" placeholder="Enter project name" />
           </form>
     </div>
     <div class="row py-3">
@@ -168,10 +169,53 @@
           <div id='calendar'></div>
         </div>
     </div>
+    <div class="  row  py-3 admins-controls"> 
+<div class="col-lg-6 border border-2 rounded bg-dark text-white">
+  <div class="d-flex justify-content-between align-items-start py-3">
+    <h3>My Team <i class="bi bi-diagram-3-fill"></i></h3>
+    <i class="bi bi-gear-fill fs-5"></i>
   </div>
-  <!-- <div class="col-lg-4 py-5 px-0">
-    <div id='calendar'></div>
-  </div> -->
+
+<ul>
+  <li> <img style="width:30px;background:white;border-radius:50%;" src="./images/d0b79558-ebba-48a9-9e2a-e3b07a2b2233.webp" alt="">   <span>Tarek Ahmed </span>  <span>working<i class="bi bi-circle-fill text-success"></i></span>    </li>
+
+
+  <li> <img style="width:30px;background:white;border-radius:50%;" src="./images/d0b79558-ebba-48a9-9e2a-e3b07a2b2233.webp" alt="">   <span>Tarek Ahmed </span>  <span>Break<i class="bi bi-pause-circle-fill  text-warning"></i></span>    </li>
+  <li> <img style="width:30px;background:white;border-radius:50%;" src="./images/d0b79558-ebba-48a9-9e2a-e3b07a2b2233.webp" alt="">   <span>Tarek Ahmed </span>  <span>leave<i class="bi bi-dash-circle-fill text-danger"></i></span>    </li>
+</ul>
+
+
+
+
+</div>
+<div class="col-lg-6 border border-2 rounded bg-dark text-white">
+<div class="row">
+<div class="col-lg-6">
+  <h5>Accepted Requests</h5>
+  <div class="border rounded p-1">
+    <ul>
+      <li> <img style="width:30px;background:white;border-radius:50%;" src="./images/d0b79558-ebba-48a9-9e2a-e3b07a2b2233.webp" alt="">   <span>Tarek Ahmed </span>  <span>leave<i class="bi bi-check2-circle text-success"></i></span>    </li>
+      <li> <img style="width:30px;background:white;border-radius:50%;" src="./images/d0b79558-ebba-48a9-9e2a-e3b07a2b2233.webp" alt="">   <span>Tarek Ahmed </span>  <span>leave<i class="bi bi-check2-circle text-success"></i></span>    </li>
+      <li> <img style="width:30px;background:white;border-radius:50%;" src="./images/d0b79558-ebba-48a9-9e2a-e3b07a2b2233.webp" alt="">   <span>Tarek Ahmed </span>  <span>leave<i class="bi bi-check2-circle text-success"></i></span>    </li>
+    </ul>
+   
+  </div>
+</div>
+<div class="col-lg-6">
+  <h5>incoming Requests</h5>
+  <div class="border rounded p-1">
+    <ul>
+      <li> <img style="width:30px;background:white;border-radius:50%;" src="./images/d0b79558-ebba-48a9-9e2a-e3b07a2b2233.webp" alt="">   <span>Tarek Ahmed </span>  <span>leave<i class="bi bi-stopwatch-fill text-warning"></i></span>    </li>
+      <li> <img style="width:30px;background:white;border-radius:50%;" src="./images/d0b79558-ebba-48a9-9e2a-e3b07a2b2233.webp" alt="">   <span>Tarek Ahmed </span>  <span>leave<i class="bi bi-stopwatch-fill text-warning"></i></span>    </li>
+      <li> <img style="width:30px;background:white;border-radius:50%;" src="./images/d0b79558-ebba-48a9-9e2a-e3b07a2b2233.webp" alt="">   <span>Tarek Ahmed </span>  <span>leave<i class="bi bi-stopwatch-fill text-warning"></i></span>    </li>
+    </ul>
+  </div>
+</div>
+</div>
+</div>
+    </div>
+  </div>
+
 </div>
 
     
@@ -223,7 +267,7 @@
  
 
 </body>
-<script  src="src/js/main.js"></script>
+<!-- <script  src="src/js/chart.js"></script> -->
 <script  src="src/js/app.js"></script>
 <!-- <script  src="src/js/jquery-3.6.0.js"></script> -->
 <script src="src/js/bootstrap.min.js"></script>

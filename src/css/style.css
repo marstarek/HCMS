@@ -78,7 +78,7 @@ a {
    a:hover, a:focus {
 	text-decoration: none;
    }
-   
+  
 /*  */
 
 
@@ -92,16 +92,27 @@ a {
   background-color: rgb(24, 120, 247);
   padding: 12px;
   gap: 6px;
+
 }
 
 .user__icon img {
-  max-width: 100%;
+  max-width: 60%;
   border: 3px solid white;
   background-color: white;
   border-radius: 50%;
   overflow: hidden;
 }
-
+.user__icon  {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+.upload-img{
+  position: absolute;
+  bottom:0;
+  font-size:1.8rem;
+  color: #1878f7;
+}
 .user__text {
   width: 100%;
 }
@@ -158,7 +169,10 @@ padding:10px 0
 }
 /* requests */
 .req-holder{
-  border: 1px solid;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 2rem 2rem;
+  box-shadow: 0 3px 5px -1px rgb(0 0 0 / 20%), 0 6px 10px 0 rgb(0 0 0 / 14%), 0 1px 18px 0 rgb(0 0 0 / 12%);
 }
 .req-body{
   text-align:left
@@ -173,7 +187,18 @@ padding:10px 0
   color:#BB2D3B;
 }
 
-
-
+center {
+  display:none;
+}
+center span{
+font-weight: 500;
+font-size:1.2rem
+}
+#req{
+  padding:0 8%
+}
+.admins-controls  ul{
+  padding: 0!important
+ }
 
        
