@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="src/css/bootstrap.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js" integrity="sha512-sW/w8s4RWTdFFSduOTGtk4isV1+190E/GghVffMA9XczdJ2MDzSzLEubKAs5h0wzgSJOQTRYyaz73L3d6RtJSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
   <link href='./src/lib/main.css' rel='stylesheet' />
   <script  src="src/js/jquery-3.6.0.js"></script>
   <script src='./src/lib/main.min.js'></script>
@@ -18,14 +19,97 @@
 
     document.addEventListener('DOMContentLoaded', function() {
       var calendarEl = document.getElementById('calendar');
+  
       var calendar = new FullCalendar.Calendar(calendarEl, {
-        initialView: 'dayGridMonth',
+        headerToolbar: {
+          left: 'prev,next today',
+          center: 'title',
+          right: 'dayGridMonth,timeGridWeek,timeGridDay'
+        },
+        // initialDate: '2020-06-12',
+        navLinks: true, // can click day/week names to navigate views
         selectable: true,
-        // locale: 'ar',
+        selectMirror: true,
+        select: function(arg) {
+          var title = prompt('Event Title:');
+          if (title) {
+            calendar.addEvent({
+              title: title,
+              start: arg.start,
+              end: arg.end,
+              allDay: arg.allDay
+            })
+          }
+          calendar.unselect()
+        },
+        eventClick: function(arg) {
+          if (confirm('Are you sure you want to delete this event?')) {
+            arg.event.remove()
+          }
+        },
+        editable: true,
+        dayMaxEvents: true, // allow "more" link when too many events
+        events: [
+          {
+            title: 'All Day Event',
+            start: '2022-06-01'
+          },
+          {
+            title: 'Long Event',
+            start: '2022-09-07',
+            end: '2022-06-10'
+          },
+          {
+            groupId: 999,
+            title: 'Repeating Event',
+            start: '2022-06-09T16:00:00'
+          },
+          {
+            groupId: 999,
+            title: 'Repeating Event',
+            start: '2022-06-16T16:00:00'
+          },
+          {
+            title: 'Conference',
+            start: '2022-06-11',
+            end: '2022-06-13'
+          },
+          {
+            title: 'Meeting',
+            start: '2022-06-12T10:30:00',
+            end: '2022-06-12T12:30:00'
+          },
+          {
+            title: 'Lunch',
+            start: '2022-06-12T12:00:00'
+          },
+          {
+            title: 'Meeting',
+            start: '2022-06-12T14:30:00'
+          },
+          {
+            title: 'Happy Hour',
+            start: '2022-06-12T17:30:00'
+          },
+          {
+            title: 'Dinner',
+            start: '2022-06-12T20:00:00'
+          },
+          {
+            title: 'Birthday Party',
+            start: '2022-06-13T07:00:00'
+          },
+          {
+            title: 'Click for Google',
+            url: 'http://google.com/',
+            start: '2022-06-28'
+          }
+        ]
       });
+  
       calendar.render();
     });
-
+  
   </script>
 </head>
 
@@ -43,16 +127,7 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="./timer.html">Home</a>
           </li>
-          <!-- <li class="nav-item">
-            <a class="nav-link" href="./timer.html">tracker</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./addemp.html">addEmp</a>
-          </li>
-         
-          <li class="nav-item">
-            <a class="nav-link" href="./request.html">request1</a>
-          </li> -->
+       
           <li class="nav-item">
             <a class="nav-link" href="./login.html">login</a>
           </li>
@@ -96,6 +171,11 @@
         <li >working at: <span id="working-at"></span></li>
         <li >checked out at:<span class="time-card__hours " id="checked-out"></span>
         </li>
+        <li >Leave Balance :<span class=" " >21 per year</span>
+        </li> 
+        <li >permissions Balance<span class=" " >2 per month</span>
+        </li>
+      
        
        
         
@@ -172,16 +252,33 @@
           <div id='calendar'></div>
         </div>
     </div>
+    <section class="graph-container py-5">
+      <div class="row">
+        <div class="col-md-8">
+          <canvas id="myChart"></canvas>
+        </div>
+        <div class="col-md-4">
+          <canvas id="myChart2"></canvas>
+        </div>
+
+      </div>
+     
+    </section>
     <div class="  row  py-3 ps-2 admins-controls"style="--bs-columns: 4; --bs-gap: 5rem;"> 
 
 
 
-
+<!-- My Team -->
 <div class="col-lg-12 border border-2 rounded bg-dark text-white pb-3">
 
   <div class="d-flex justify-content-between align-items-start py-3">
     <h3>My Team <i class="bi bi-diagram-3-fill"></i></h3>
-    <i class="bi bi-person-plus-fill fs-3 text-primary " data-bs-toggle="modal" data-bs-target="#exampleModal"></i>
+    <div class="d-flex     align-items-center" >
+      <i class="bi bi-person-plus-fill fs-3  "style="color:#007ac3"  data-bs-toggle="modal" data-bs-target="#exampleModal"></i>
+      <a href="https://trello.com" target="_blank">     <img src="./images/Trello-Logo.png" style="width: 100px"alt="" ></a>
+ 
+    </div>
+    
   </div>
   <div class="">
   
@@ -576,7 +673,7 @@
  
 
 </body>
-<!-- <script  src="src/js/chart.js"></script> -->
+<script  src="src/js/chart.js"></script>
 <script  src="src/js/app.js"></script>
 <!-- <script  src="src/js/jquery-3.6.0.js"></script> -->
 <script src="src/js/bootstrap.min.js"></script>
